@@ -72,9 +72,10 @@ jobs:
             retention-days: 5 
 
     docker:
+        name: docker 
         runs-on: ubuntu-latest
-        steps: 
         needs: [unit testing, code coverage]
+        steps: 
         - name: Checkout repo
           uses: actions/checkout@v4
         - name: Docker login
