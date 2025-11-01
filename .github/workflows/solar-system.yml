@@ -101,7 +101,7 @@ jobs:
       steps:
         - name: install kuberntes
           uses: helm/kind-action@v4
-          run: |
+        -  run: |
             sleep 60
             kubectl -n kube-system get pod
             set +e
