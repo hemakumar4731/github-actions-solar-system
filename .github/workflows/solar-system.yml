@@ -45,7 +45,7 @@ jobs:
           with:
             name: Mocha-Test-Result
             path: test-results.xml
-            
+
 
     code-coverage:
         name: code-coverage
@@ -119,4 +119,10 @@ jobs:
             kubectl -n default get pod
             sleep 10
 
-
+    # dev-deploy job
+    integration-test:
+      needs: dev-deploy
+      uses: ./.github/workflows/reusable-workflow.yml
+      with:
+        ingress-url: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
+    # next job
